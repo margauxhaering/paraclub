@@ -10,7 +10,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--coral);outline-offset:3px}
 .wrap{max-width:1120px;margin:auto;padding:0 22px}
 .wrap2{max-width:1120px;margin: 0 70px;padding:0 0px}
-header{position:fixed;z-index:20;top:14px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 24px));background:rgba(11,13,69,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 10px 8px 24px}
+header{position:fixed;z-index:20;top:14px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 24px));background:rgba(11,13,69,.62);backdrop-filter:blur(14px);border-radius:999px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 10px 8px 24px}
 .logo{font:800 1.05rem 'Unbounded',sans-serif;text-decoration:none}
 .logo i{color:var(--sun);font-style:normal}
 nav{display:flex;gap:4px}
@@ -22,6 +22,8 @@ nav a.on{background:var(--sun);color:var(--night)}
 nav{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--night);border-radius:24px;flex-direction:column;padding:12px}
 nav.open{display:flex}}
 .hero{position:relative;overflow:hidden;color:#fff;background-image: url("/paraclub/assets/img/boogie.png");  height: 500px;background-position: center;background-repeat: no-repeat;background-size: cover;}
+@media (max-width: 768px){
+.hero{background-image:url("/paraclub/assets/img/boogie2.png");height:350px;}}
 .ptitle{position:relative;overflow:hidden;color:#fff;background-image: url("/paraclub/assets/img/tandem.png");  height: 500px;background-position: center;background-repeat: no-repeat;background-size: cover;}
 .ptitle2{position:relative;overflow:hidden;color:#fff;background-image: url("/paraclub/assets/img/team.png");  height: 500px;background-position: center;background-repeat: no-repeat;background-size: cover;padding:170px 0 90px}
 .hero{min-height:100svh;display:flex;align-items:flex-end;padding:140px 0 70px}
@@ -166,6 +168,68 @@ section{padding:90px 0}
             font-size: 15px;
           }
         }
+
+
+        @media (max-width: 768px) {
+  /* colonnes -> une seule colonne */
+  .wrap.split {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .wrap.split > div {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 24px;
+  }
+
+  /* on désactive le "sticky" sur mobile */
+  .sticky, .sticky1 {
+    position: static !important;
+  }
+
+  /* les 2 drop zones l'une sous l'autre */
+  .panels-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .panel1 {
+    width: 100%;
+  }
+
+  /* évènements : cartes pleine largeur */
+  .snap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: visible;
+  }
+  .snap article {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+
+  /* évite les débordements de texte / liens */
+  h2, h3, p, a, label {
+    overflow-wrap: anywhere;
+  }
+}
+
+.panel.sticky img,
+.tp img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .tp .panel.sticky img {
+    width: 100%;
+    height: auto;
+  }
+}
 
 .price{font:800 clamp(2.6rem,7vw,4rem) 'Unbounded';color:var(--ultra)}
 .tl{list-style:none;padding:0;border-left:3px solid var(--ultra);margin-left:8px}
